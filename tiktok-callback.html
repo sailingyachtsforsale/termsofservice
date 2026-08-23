@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Callback OAuth TikTok — SailingYachtsForSale</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="legal-header">
+  <div class="brand">Sailing<span class="cats">Cats</span>ForSale</div>
+  <h1>Callback OAuth TikTok</h1>
+</header>
+
+<main style="text-align:center; padding-top: 56px;">
+  <p id="status" style="font-size:18px">Lecture des paramètres...</p>
+  <p id="codeBox" style="display:none; margin-top:24px;">
+    <span style="font-size:13px; color:var(--text-muted); display:block; margin-bottom:8px;">
+      Code d'autorisation (copie-le rapidement, il expire vite) :
+    </span>
+    <code id="codeValue" style="font-size:15px; background:#eef2f7; padding:10px 16px; border-radius:6px; word-break:break-all; display:inline-block;"></code>
+  </p>
+  <p id="stateBox" style="display:none; margin-top:16px; font-size:13px; color:var(--text-muted);">
+    state reçu : <code id="stateValue"></code>
+  </p>
+  <p id="errorBox" style="display:none; margin-top:24px; color:#b33; font-size:15px;"></p>
+</main>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const code = params.get('code');
+  const state = params.get('state');
+  const error = params.get('error');
+  const errorDescription = params.get('error_description');
+
+  const statusEl = document.getElementById('status');
+
+  if (error) {
+    statusEl.textContent = "Autorisation refusée ou erreur.";
+    const errBox = document.getElementById('errorBox');
+    errBox.style.display = 'block';
+    errBox.textContent = error + (errorDescription ? (' — ' + errorDescription) : '');
+  } else if (code) {
+    statusEl.textContent = "Autorisation réussie.";
+    document.getElementById('codeBox').style.display = 'block';
+    document.getElementById('codeValue').textContent = code;
+    if (state) {
+      document.getElementById('stateBox').style.display = 'block';
+      document.getElementById('stateValue').textContent = state;
+    }
+  } else {
+    statusEl.textContent = "Aucun code trouvé dans l'URL.";
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+:root {
+  --navy: #16233f;
+  --navy-deep: #0e1830;
+  --steel: #5b7a99;
+  --steel-light: #8fa8c2;
+  --paper: #f7f9fb;
+  --line: #dbe3ec;
+  --text: #1c2a3f;
+  --text-muted: #5c6b80;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--text);
+  font-family: "Georgia", "Iowan Old Style", serif;
+  line-height: 1.65;
+}
+
+header.legal-header {
+  background: var(--navy);
+  color: #fff;
+  padding: 48px 24px 40px;
+  text-align: center;
+}
+
+header.legal-header .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: var(--steel-light);
+}
+
+header.legal-header .brand .cats { color: #fff; }
+
+header.legal-header h1 {
+  margin: 18px 0 6px;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 600;
+}
+
+header.legal-header .updated {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 13px;
+  color: var(--steel-light);
+}
+
+nav.legal-nav {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  padding: 14px 24px;
+  background: var(--navy-deep);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 13px;
+}
+
+nav.legal-nav a {
+  color: var(--steel-light);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+}
+
+nav.legal-nav a[aria-current="page"],
+nav.legal-nav a:hover {
+  color: #fff;
+  border-bottom-color: var(--steel-light);
+}
+
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px 24px 96px;
+}
+
+main h2 {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--steel);
+  margin: 44px 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+main h2:first-of-type { margin-top: 0; }
+
+main p, main li {
+  font-size: 17px;
+  color: var(--text);
+}
+
+main p.muted {
+  color: var(--text-muted);
+  font-size: 15px;
+}
+
+main ul { padding-left: 20px; }
+main li { margin-bottom: 8px; }
+
+a { color: var(--steel); }
+
+footer.legal-footer {
+  text-align: center;
+  padding: 32px 24px 48px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 12px;
+  color: var(--text-muted);
+}
